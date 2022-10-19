@@ -1,6 +1,6 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import { mockTransactions } from "../../data/mockData";
+import { mockRAppointments } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import AccessibleIcon from "@mui/icons-material/Accessible";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
@@ -162,9 +162,9 @@ const Dashboard = () => {
               Recent Appointments
             </Typography>
           </Box>
-          {mockTransactions.map((transaction, i) => (
+          {mockRAppointments.map((appointment, i) => (
             <Box
-              key={`${transaction.txId}-${i}`}
+              key={`${appointment.txId}-${i}`}
               display="flex"
               justifyContent="space-between"
               alignItems="center"
@@ -177,19 +177,19 @@ const Dashboard = () => {
                   variant="h5"
                   fontWeight="600"
                 >
-                  {transaction.txId}
+                  {appointment.txId}
                 </Typography>
                 <Typography color={colors.grey[100]}>
-                  {transaction.user}
+                  {appointment.user}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
+              <Box color={colors.grey[100]}>{appointment.date}</Box>
               <Box
                 backgroundColor={colors.greenAccent[500]}
                 p="5px 10px"
                 borderRadius="4px"
               >
-                {transaction.cost}
+                {appointment.cost}
               </Box>
             </Box>
           ))}
