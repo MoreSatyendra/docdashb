@@ -46,8 +46,8 @@ const Contacts = () => {
       flex: 1,
     },
     {
-      field: "zipCode",
-      headerName: "Zip Code",
+      field: "pinCode",
+      headerName: "Pin Code",
       flex: 1,
     },
   ];
@@ -55,8 +55,8 @@ const Contacts = () => {
   return (
     <Box m="20px">
       <Header
-        title="CONTACTS"
-        subtitle="List of Contacts for Future Reference"
+        title="PATIENTS"
+        subtitle="List of patients for which are completed and pending..."
       />
       <Box
         m="40px 0 0 0"

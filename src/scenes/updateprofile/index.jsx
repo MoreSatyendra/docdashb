@@ -2,6 +2,8 @@ import { Box, Button, TextField } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import InputAdornment from "@mui/material/InputAdornment";
 import Header from "../../components/Header";
 
 const Form = () => {
@@ -93,6 +95,58 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
+                label="Doctor ID"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.doctorID}
+                name="doctorID"
+                error={!!touched.doctorID && !!errors.doctorID}
+                helperText={touched.doctorID && errors.doctorID}
+                sx={{ gridColumn: "span 2" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Gender"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.gender}
+                name="gender"
+                error={!!touched.gender && !!errors.gender}
+                helperText={touched.gender && errors.gender}
+                sx={{ gridColumn: "span 2" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Specialization"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.specialization}
+                name="specialization"
+                error={!!touched.specialization && !!errors.specialization}
+                helperText={touched.specialization && errors.specialization}
+                sx={{ gridColumn: "span 2" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Experience"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.experience}
+                name="experience"
+                error={!!touched.experience && !!errors.experience}
+                helperText={touched.experience && errors.experience}
+                sx={{ gridColumn: "span 2" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
                 label="Address 1"
                 onBlur={handleBlur}
                 onChange={handleChange}
@@ -106,15 +160,85 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 2"
+                label="Clinic Address"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address2}
-                name="address2"
-                error={!!touched.address2 && !!errors.address2}
-                helperText={touched.address2 && errors.address2}
+                value={values.clinicAddress}
+                name="clinicAddress"
+                error={!!touched.clinicAddress && !!errors.clinicAddress}
+                helperText={touched.clinicAddress && errors.clinicAddress}
                 sx={{ gridColumn: "span 4" }}
               />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Medical Certificate Number"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.medicalCertificateNumber}
+                name="medicalCertificateNumber"
+                error={
+                  !!touched.medicalCertificateNumber &&
+                  !!errors.medicalCertificateNumber
+                }
+                helperText={
+                  touched.medicalCertificateNumber &&
+                  errors.medicalCertificateNumber
+                }
+                sx={{ gridColumn: "span 2" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="tel"
+                label="Aadhar Number"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.aadharNumber}
+                name="aadharNumber"
+                error={!!touched.aadharNumber && !!errors.aadharNumber}
+                helperText={touched.aadharNumber && errors.aadharNumber}
+                sx={{ gridColumn: "span 2" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="time"
+                min="08:00"
+                max="18:00"
+                label="available Time"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.availableTime}
+                name="availableTime"
+                error={!!touched.availableTime && !!errors.availableTime}
+                helperText={touched.availableTime && errors.availableTime}
+                sx={{ gridColumn: "span 2" }}
+              />
+
+              <TextField
+                fullWidth
+                variant="filled"
+                label="Consulting Fees"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.consultationFee}
+                name="consultationFee"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <CurrencyRupeeIcon />
+                    </InputAdornment>
+                  ),
+                }}
+                error={!!touched.consultationFee && !!errors.consultationFee}
+                helperText={touched.consultationFee && errors.consultationFee}
+                sx={{ gridColumn: "span 2" }}
+              />
+              <small className="pd-10">
+                Some Available hours are From 9am to 6pm
+              </small>
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
@@ -129,7 +253,8 @@ const Form = () => {
 };
 
 const phoneRegExp =
-  /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
+  /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$/gm;
+const aadharRegEx = "^[2-9]{1}[0-9]{3}\\s[0-9]{4}\\s[0-9]{4}$";
 
 const checkoutSchema = yup.object().shape({
   firstName: yup.string().required("required"),
@@ -139,16 +264,35 @@ const checkoutSchema = yup.object().shape({
     .string()
     .matches(phoneRegExp, "Phone number is not valid")
     .required("required"),
+  doctorID: yup.string().required("required"),
+  gender: yup.string().required("required"),
+  experience: yup.string().required("required"),
+  specialization: yup.string().required("required"),
   address1: yup.string().required("required"),
-  address2: yup.string().required("required"),
+  clinicAddress: yup.string().required("required"),
+  medicalCertificateNumber: yup.string().required("required"),
+  aadharNumber: yup
+    .string()
+    .matches(aadharRegEx, "aadhar number is not valid")
+    .required("required"),
+  availableTime: yup.string().required("required"),
+  consultationFee: yup.string().required("required"),
 });
 const initialValues = {
   firstName: "",
   lastName: "",
   email: "",
   contact: "",
+  experience: "",
+  doctorID: "",
+  specialization: "",
+  gender: "",
   address1: "",
-  address2: "",
+  clinicAddress: "",
+  medicalCertificateNumber: "",
+  aadharNumber: "",
+  availableTime: "",
+  consultationFee: "",
 };
 
 export default Form;

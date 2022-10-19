@@ -5,7 +5,7 @@ import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Appointment from "./scenes/appoint";
-import Contacts from "./scenes/contacts";
+import Contacts from "./scenes/patients";
 import MeetingInfo from "./scenes/infomeeting";
 import ProfileUpdate from "./scenes/updateprofile";
 import Line from "./scenes/line";
@@ -22,9 +22,9 @@ function App() {
           <main className="content">
             <Topbar />
             <Routes>
-              <Route path="/" element={<Dashboard />} />
+              <Route path="/" exact element={<Dashboard />} />
               <Route path="/appoint" element={<Appointment />} />
-              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/patientlist" element={<Contacts />} />
               <Route path="/infomet" element={<MeetingInfo />} />
               <Route path="/profileupdate" element={<ProfileUpdate />} />
               <Route path="/line" element={<Line />} />

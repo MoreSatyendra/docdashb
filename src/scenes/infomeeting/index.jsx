@@ -27,7 +27,7 @@ const Invoices = () => {
     },
     {
       field: "cost",
-      headerName: "Appointment Cost",
+      headerName: "Consulting Fees",
       flex: 1,
       renderCell: (params) => (
         <Typography color={colors.greenAccent[500]}>

@@ -112,7 +112,7 @@ const Sidebar = () => {
                   Doc Name
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
-                  Profession
+                  Specialization
                 </Typography>
               </Box>
             </Box>
@@ -136,36 +136,28 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="Patient List"
-              to="/team"
+              to="/aptientlist"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Patients Information"
-              to="/contacts"
+              title="Appointments"
+              to="/appoint"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Appointment Information"
-              to="/invoices"
+              title="Appointments Done"
+              to="/infomet"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-
-            {/* <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 0 5px 20px" }}
-            >
-              Personal
-            </Typography> */}
             <Item
               title="Profile Update"
-              to="/form"
+              to="/profileupdate"
               icon={<PersonOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -192,20 +184,6 @@ const Sidebar = () => {
             >
               Overviews
             </Typography>
-            {/* <Item
-              title="Bar Chart"
-              to="/bar"
-              icon={<BarChartOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Pie Chart"
-              to="/pie"
-              icon={<PieChartOutlineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            /> */}
             <Item
               title="Line Chart"
               to="/line"

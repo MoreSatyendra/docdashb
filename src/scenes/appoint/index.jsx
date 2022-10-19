@@ -4,7 +4,7 @@ import { tokens } from "../../theme";
 import { mockDataTeam } from "../../data/mockData";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import PendingActionsIcon from "@mui/icons-material/PendingActions";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
+import DoNotDisturbAltIcon from "@mui/icons-material/DoNotDisturbAlt";
 import Header from "../../components/Header";
 
 const Team = () => {
@@ -50,14 +50,14 @@ const Team = () => {
             backgroundColor={
               access === "Done"
                 ? colors.greenAccent[600]
-                : access === "manager"
-                ? colors.greenAccent[700]
-                : colors.greenAccent[700]
+                : access === "notAttended"
+                ? colors.redAccent[700]
+                : colors.yellowAccent[700]
             }
             borderRadius="4px"
           >
             {access === "Done" && <VerifiedIcon />}
-            {access === "manager" && <SecurityOutlinedIcon />}
+            {access === "notAttended" && <DoNotDisturbAltIcon />}
             {access === "Pending" && <PendingActionsIcon />}
             <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
               {access}
