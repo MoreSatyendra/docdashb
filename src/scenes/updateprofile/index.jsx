@@ -1,5 +1,5 @@
 import { Box, Button, TextField } from "@mui/material";
-import { Formik } from "formik";
+import { Field, Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
@@ -39,6 +39,19 @@ const Form = () => {
                 "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
               }}
             >
+              <TextField
+                fullWidth
+                variant="filled"
+                type="file"
+                // label="Profile Image"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.profileImage}
+                // name="profileImage"
+                error={!!touched.profileImage && !!errors.profileImage}
+                helperText={touched.profileImage && errors.profileImage}
+                sx={{ gridColumn: "span 4" }}
+              />
               <TextField
                 fullWidth
                 variant="filled"
@@ -254,7 +267,7 @@ const Form = () => {
 
 const phoneRegExp =
   /^(?:(?:\+|0{0,2})91(\s*[\ -]\s*)?|[0]?)?[789]\d{9}|(\d[ -]?){10}\d$/gm;
-const aadharRegEx = "^[2-9]{1}[0-9]{3}\\s[0-9]{4}\\s[0-9]{4}$";
+const aadharRegEx = "^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$";
 
 const checkoutSchema = yup.object().shape({
   firstName: yup.string().required("required"),

@@ -2,25 +2,32 @@ import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
+import { tokens } from "../../theme";
+import { Box, useTheme, Typography } from "@mui/material";
 import { SidebarData } from "../../data/NavbarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
   const showSidebar = () => {
     setSidebar(!sidebar);
   };
   return (
-    <div>
+    <Box backgroundColor={colors.primary[400]}>
       <IconContext.Provider value={{ color: "primary" }}>
-        <div className="navbar">
+        <Box className="navbar" backgroundColor={colors.primary[400]}>
           <Link to="#" className="menu-bars">
             <MenuIcon onClick={showSidebar} />
           </Link>
-        </div>
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+        </Box>
+        <Box
+          className={sidebar ? "nav-menu active" : "nav-menu"}
+          backgroundColor={colors.primary[400]}
+        >
           <ul className="nav-menu-items" onClick={showSidebar}>
             <li className="navbar-toggle">
               <Link to="#" className="menu-bars">
@@ -31,16 +38,23 @@ function Navbar() {
               return (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
-                    {item.icon}
-                    <span>{item.title}</span>
+                    <Typography
+                      className="typography"
+                      variant="h5"
+                      fontWeight="600"
+                      color={colors.grey[100]}
+                    >
+                      {item.icon}
+                      {item.title}
+                    </Typography>
                   </Link>
                 </li>
               );
             })}
           </ul>
-        </nav>
+        </Box>
       </IconContext.Provider>
-    </div>
+    </Box>
   );
 }
 
