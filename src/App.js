@@ -11,7 +11,7 @@ import MeetingInfo from "./scenes/infomeeting";
 import ProfileUpdate from "./scenes/updateprofile";
 import Line from "./scenes/line";
 import Calendar from "./scenes/calendar";
-
+import Meeting from "./scenes/meeting";
 function App() {
   const [theme, colorMode] = useMode();
   return (
@@ -31,6 +31,7 @@ function App() {
               <Route path="/profileupdate" element={<ProfileUpdate />} />
               <Route path="/line" element={<Line />} />
               <Route path="/calendar" element={<Calendar />} />
+              <Route path="/joinmeeting" element={<Meeting />} />
             </Routes>
           </main>
         </div>
