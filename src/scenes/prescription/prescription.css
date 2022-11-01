@@ -1,0 +1,22 @@
+/* h1 {
+    margin: 10% 33%;
+} */
+
+.padStyle {
+    /* width: 570px; */
+    /*height: 600px; */
+    background-color: rgb(211, 211, 211);
+    border: 10px solid rgb(69, 71, 65);
+    /* margin: -8% 23%; */
+    /* background: ghostwhite; */
+    /* display: flex */
+}
+
+.labStyle {
+    background-color: rgb(230, 205, 205);
+    border: 10px solid rgb(69, 71, 65);
+}
+
+.pad-video {
+    display: flex;
+}

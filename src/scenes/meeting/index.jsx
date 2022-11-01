@@ -14,6 +14,8 @@ import io from "socket.io-client"
 import Header from "../../components/Header";
 import VideocamIcon from '@mui/icons-material/Videocam';
 import MicIcon from '@mui/icons-material/Mic';
+import Prescription from "../prescription/prescription"
+import '../prescription/prescription.css'
 const socket = io.connect('http://localhost:5000')
 const Meeting = () => {
     const theme = useTheme();
@@ -37,8 +39,8 @@ const Meeting = () => {
 				myVideo.current.srcObject = stream
 		})
 
-	socket.on("me", (id) => {
-			setMe(id)
+		socket.on("me", (id) => {
+				setMe(id)
 		})
 
 		socket.on("callUser", (data) => {
@@ -117,7 +119,12 @@ const Meeting = () => {
   return (
     <Box m="20px">
       <Header title="Meeting" subtitle="Consult with Your doctor" />
-
+	  <div className="pad-video">
+		
+	  
+	  <div className="padStyle">
+		<Prescription/>
+	  </div>
       <Box display="flex" justifyContent="space-around">
       <div className="container section">
 			<div className="video-container " id="parent">
@@ -188,6 +195,7 @@ const Meeting = () => {
 			</div>
 		</div>
         </Box>
+		</div>
       </Box>
     
    

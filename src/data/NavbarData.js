@@ -59,7 +59,7 @@ export const SidebarData = [
     cName: "nav-text",
   },
   {
-    title: "Geo Chart",
+    title: "TDM Account",
     path: "/geo",
     icon: <MapOutlinedIcon />,
     cName: "nav-text",
