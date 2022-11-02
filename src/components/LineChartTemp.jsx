@@ -1,48 +1,51 @@
 import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
-import { mockLineData as data } from "../data/mockData";
+import { mockTempLineData as data } from "../data/mockData";
 
-const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
+const Linetempchart = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   return (
     <ResponsiveLine
       data={data}
-      // theme={{
-      //   axis: {
-      //     domain: {
-      //       line: {
-      //         stroke: colors.grey[100],
-      //       },
-      //     },
-      //     legend: {
-      //       text: {
-      //         fill: colors.grey[100],
-      //       },
-      //     },
-      //     ticks: {
-      //       line: {
-      //         stroke: colors.grey[100],
-      //         strokeWidth: 1,
-      //       },
-      //       text: {
-      //         fill: colors.grey[100],
-      //       },
-      //     },
-      //   },
-      //   legends: {
-      //     text: {
-      //       fill: colors.grey[100],
-      //     },
-      //   },
-      //   tooltip: {
-      //     container: {
-      //       color: colors.primary[500],
-      //     },
-      //   },
-      // }}
+      theme={{
+        axis: {
+          domain: {
+            line: {
+              stroke: colors.grey[100],
+            },
+          },
+          legend: {
+            text: {
+              fill: colors.grey[100],
+            },
+          },
+          ticks: {
+            line: {
+              stroke: colors.grey[100],
+              strokeWidth: 1,
+            },
+            text: {
+              fill: colors.grey[100],
+            },
+          },
+        },
+        legends: {
+          text: {
+            fill: colors.grey[100],
+          },
+        },
+        tooltip: {
+          container: {
+            color: colors.primary[500],
+          },
+        },
+      }}
+
+
+      /*
       theme={
         {
           "background": "#ffffff",
@@ -139,9 +142,9 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
               "tableCellValue": {}
           }
       }}
-      
+      */
       colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }} // added
-      margin={{ top: 50, right: 20, bottom: 140, left: 30 }}
+      margin={{ top: 30, right: 170, bottom: 50, left: 60 }}
       xScale={{ type: "point" }}
       yScale={{
         type: "linear",
@@ -159,10 +162,9 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         tickSize: 0,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "transportation", // added
+        legend: isDashboard ? undefined : "Time", // added
         legendOffset: 36,
         legendPosition: "middle",
-        color:"blue"
       }}
       axisLeft={{
         orient: "left",
@@ -170,7 +172,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
         tickSize: 3,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "count", // added
+        legend: isDashboard ? undefined : "Temperature", // added
         legendOffset: -40,
         legendPosition: "middle",
       }}
@@ -212,4 +214,4 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   );
 };
 
-export default LineChart;
+export default Linetempchart;
