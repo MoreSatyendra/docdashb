@@ -12,9 +12,7 @@ module.exports = {
     }),
     extend: {
       backgroundImage: {
-        'blue_purple_grad': "linear-gradient(90deg,#4ca5ff 2.34%,#b673f8 100.78%)",
-        "bg2" : "radial-gradient(at right bottom, rgb(192, 38, 211), rgb(253, 186, 116), rgb(147, 51, 234))",
-        "bg3" : "radial-gradient(at center center, rgb(192, 132, 252), rgb(126, 34, 206), rgb(107, 33, 168))"
+        'blue_purple_grad': "linear-gradient(90deg,#4ca5ff 2.34%,#b673f8 100.78%)"
       },
       colors:{
         baby_orange : "#ffae84",

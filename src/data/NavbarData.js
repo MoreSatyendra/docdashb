@@ -60,7 +60,7 @@ export const SidebarData = [
   },
   {
     title: "TDM Account",
-    path: "/geo",
+    path: "/TdmAccount",
     icon: <MapOutlinedIcon />,
     cName: "nav-text",
   },
