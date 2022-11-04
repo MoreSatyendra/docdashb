@@ -3,7 +3,6 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Navbar from "./scenes/global/Navbar";
-// import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Appointment from "./scenes/appoint";
 import Contacts from "./scenes/patients";
@@ -12,7 +11,9 @@ import ProfileUpdate from "./scenes/updateprofile";
 import Line from "./scenes/line";
 import Calendar from "./scenes/calendar";
 import Meeting from "./scenes/meeting";
+import TdmAccount from "./scenes/TdmAccount"
 import Home from "./scenes/appointment/Home"
+import TdmInfo from "./scenes/TdmInfo"
 function App() {
   const [theme, colorMode] = useMode();
   return (
@@ -21,7 +22,6 @@ function App() {
         <CssBaseline />
         <div className="app">
           <Navbar />
-          {/* <Sidebar /> */}
           <main className="content">
             <Topbar />
             <Routes>
@@ -33,6 +33,8 @@ function App() {
               <Route path="/line" element={<Line />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/joinmeeting" element={<Home />} />
+              <Route  path ="/TdmAccount" element={<TdmAccount/>}/>
+              <Route  path ="/TdmAccount/:id" element={<TdmInfo/>}/>
             </Routes>
           </main>
         </div>
